@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2d dynamic system</title>
+    <!--    
+    <script src="../p5.js"></script>
+    <script src="main.js"></script>
+    <script src="classes.js"></script>
+ -->
+    <script src="https://github.com/processing/p5.js/releases/download/v1.4.2/p5.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="settings">
+            <h2>Settings</h2>
+            <form>
+                <label for="xmin">\(x_{min}\)</label><br>
+                <input type="range" id="xmin" name="xmin" min="-10" max="0" step="0.1" value="-1"><br><br>
+                <label for="xmax">\(x_{max}\)</label><br>
+                <input type="range" id="xmax" name="xmax" min="0" max="10" step="0.1" value="1"><br><br>
+                <label for="ymin">\(y_{min}\)</label><br>
+                <input type="range" id="ymin" name="ymin" min="-10" max="0" step="0.1" value="-1"><br><br>
+                <label for="ymax">\(y_{max}\)</label><br>
+                <input type="range" id="ymax" name="ymax" min="0" max="10" step="0.1" value="1""><br><br>
+                <label for=" timestep">\(\Delta t\)</label><br>
+                <input type="range" id="timestep" name="timestep" min="0" max="0.1" step="0.002" value="0.04"><br><br>
+                <label for=" nparticles">\(\ N \)</label><br>
+                <input type="range" id="nparticles" name="nparticles" min="3" max="70" step="1" value="20"><br><br>
+                <label for="fx">\(f_x\)</label><br>
+                <select id="fx" name="fx">
+                    <option value="linearPendulum" selected>Linearized pendulum (harmonic oscillator)</option>
+                    <option value="realPendulum">Physical pendulum</option>
+                    <option value="vdP">van der Pol</option>
+                    <option value="Duffing">Duffing</option>
+                    <option value="quadraticNewton">quadratic Newton</option>
+                    <option value="cubicNewton">cubic Newton</option>
+                </select> <br><br>
+                <label for="fx">\(f_x\)</label><br>
+                <select id="fy" name="fy">
+                    <option value="linearPendulum" selected>Linearized pendulum (harmonic oscillator)</option>
+                    <option value="realPendulum">Physical pendulum</option>
+                    <option value="vdP">van der Pol</option>
+                    <option value="Duffing">Duffing</option>
+                    <option value="quadraticNewton">quadratic Newton</option>
+                    <option value="cubicNewton">cubic Newton</option>
+                </select><br><br><br>
+                <!--
+                <button type="button" id="submitter">Run simulation</button>
+                -->
+
+            </form>
+        </div>
+        <div style="width : 100%" class="image">
+            <h2>Simulation</h2>
+        </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="classes.js"></script>
+    <script src="utils.js"></script>
+</body>
+
+</html>
