@@ -5,6 +5,8 @@ const hist = 50;
 let sys;
 //let grid;
 let N = +document.getElementById("nparticles").value;
+//let x0 = -1, x1 = 1;
+//let y0 = -1, y1 = 1;
 let x0 = +document.getElementById("xmin").value, x1 = +document.getElementById("xmax").value;
 let y0 = +document.getElementById("ymin").value, y1 = +document.getElementById("ymax").value;
 let dt = +document.getElementById("timestep").value
