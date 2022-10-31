@@ -45,48 +45,34 @@ nparticles.oninput = () => {
 }
 
 
-fx.oninput = () => {
+F.oninput = () => {
     background(0);
-    newfunc = document.getElementById("fx").value;
+    newfunc = document.getElementById("F").value;
     switch (newfunc) {
-        case "linearPendulum" || "realPendulum" || "vdP" || "Duffing":
-            xfunc = (x, y) => y;
+        case "1 a i":
+            xfunc = (x, y) => 2 * x;
+            yfunc = (x, y) => 2 * y;
             break;
-        case "quadraticNewton":
-            xfunc = (x, y) => 0.5 * x * (0.5 / (x * x + y * y + 0.1) - 1);
+        case "1 a ii":
+            xfunc = (x, y) => 2 * x;
+            yfunc = (x, y) => -2 * y;
             break;
-        case "cubicNewton":
-            xfunc = (x, y) => {
-                let r2 = x * x + y * y + 0.1;
-                return -(x * x - y * y) / (r2 * r2) - x;
-            }
-    }
-}
-
-fy.oninput = () => {
-    background(0);
-    newfunc = document.getElementById("fy").value;
-    switch (newfunc) {
-        case "linearPendulum":
-            yfunc = (x, y) => -x;
+        case "1 b i":
+            xfunc = (x, y) => 0;
+            yfunc = (x, y) => -1;
             break;
-        case "realPendulum":
-            yfunc = (x, y) => -sin(x);
+        case "1 b ii":
+            xfunc = (x, y) => -x;
+            yfunc = (x, y) => y * y;
             break;
-        case "vdP":
-            yfunc = (x, y) => -x + (1 - x * x) * y;
+        case "1 b iii":
+            xfunc = (x, y) => -y;
+            yfunc = (x, y) => x;
             break;
-        case "Duffing":
-            yfunc = (x, y) => -x + x * x * x / 6;
+        case "Justin Beispiel":
+            xfunc = (x, y) => 0;
+            yfunc = (x, y) => Math.max(0, 1 - x * x);
             break;
-        case "quadraticNewton":
-            yfunc = (x, y) => -0.5 * y * (0.5 / (x * x + y * y + 0.1) + 1);
-            break;
-        case "cubicNewton":
-            yfunc = (x, y) => {
-                let r2 = x * x + y * y + 0.1;
-                return 2 * x * y / (r2 * r2) - y;
-            }
     }
 }
 

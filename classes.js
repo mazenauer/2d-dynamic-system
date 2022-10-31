@@ -89,6 +89,7 @@ class System {
     }
     drawStepLines(dt, skipSteps) {
         background(0, 0.02);
+        strokeWeight(2);
         for (let p of this.points) {
             for (let k = 0; k < skipSteps; k++) {
                 if (this.method === "RK4") {
@@ -103,5 +104,38 @@ class System {
                 this.shiftX(p.previous.x), this.shiftY(p.previous.y));
         }
         this.t += dt * skipSteps;
+    }
+}
+
+class Grid {
+    constructor(Nlines = 3) {
+        this.N = 2 * Nlines + 1;
+    }
+
+    drawGrid() {
+        stroke(255, 0.5);
+        strokeWeight(0.05);
+        textSize(8);
+        fill(255);
+        for (let i = 1; i <= this.N; i++) {
+            let xval = width * i / (this.N + 1);
+            let yval = height * i / (this.N + 1);
+            line(xval, 0, xval, height);
+            line(0, yval, width, yval);
+        }
+        /*
+        strokeWeight(0.01);
+        for (let i = 1; i <= this.N; i++) {
+            let xval = width * i / (this.N + 1);
+            let yval = height * i / (this.N + 1);
+            let xtext = round(+xmin.value + i * (+xmax.value - +xmin.value), 2);
+            let ytext = round(-ymin.value - i * (+ymax.value - +ymin.value), 2);
+            text(xtext, xval, height / 2);
+            if (i == (this.N + 1) / 2) {
+                continue;
+            }
+            text(ytext, width / 2, yval);
+        }
+        */
     }
 }

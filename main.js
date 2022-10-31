@@ -1,24 +1,18 @@
-function f(v, t) {
-    //return new Vector(v.y, -sin(v.x));
-    //return new Vector(v.y, -v.x);
-    //return new Vector(-2 * 1 * v.y, v.x * v.x + v.y * v.y);
-}
 
 
 const zoom = 1.2;
 const hist = 50;
 let sys;
+//let grid;
 let N = +document.getElementById("nparticles").value;
 let x0 = +document.getElementById("xmin").value, x1 = +document.getElementById("xmax").value;
 let y0 = +document.getElementById("ymin").value, y1 = +document.getElementById("ymax").value;
 let dt = +document.getElementById("timestep").value
-let xfunc = (x, y) => y, yfunc = (x, y) => -sin(x);
+let xfunc = (x, y) => 2 * x, yfunc = (x, y) => 2 * y;
 
 function f(v, t) {
     return new Vector(xfunc(v.x, v.y), yfunc(v.x, v.y));
 }
-
-//let button;
 
 function setup() {
     console.log(x0, x1, y0, y1);
@@ -29,17 +23,12 @@ function setup() {
     colorMode(RGB, 255, 255, 255, 1);
     sys = new System(x0, 5, -3, 3, N, hist);
     sys.stepPoints(dt, 100);
-    //button = createButton('Run simulation');
-    //button.position(10, 550);
-    //button.mousePressed(restartSim);
+    //grid = new Grid();
 }
 
 function draw() {
     sys.drawStepLines(dt, 1);
-    //x0 = +document.getElementById("xmin").value, x1 = +document.getElementById("xmax").value;
-    //y0 = +document.getElementById("ymin").value, y1 = +document.getElementById("ymax").value;
-    //console.log(x0, x1, y0, y1);
-
+    //grid.drawGrid();
 }
 
 
