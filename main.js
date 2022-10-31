@@ -21,7 +21,7 @@ function setup() {
     frameRate(30);
     strokeWeight(2);
     colorMode(RGB, 255, 255, 255, 1);
-    sys = new System(x0, 5, -3, 3, N, hist);
+    sys = new System(x0, x1, y0, y1, N, hist);
     sys.stepPoints(dt, 100);
     //grid = new Grid();
 }
